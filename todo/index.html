@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Liste de Tâches - To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Ma Liste de Tâches</h1>
+            <p class="subtitle">Vos tâches sont sauvegardées automatiquement</p>
+        </header>
+
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="todoInput" 
+                placeholder="Ajouter une nouvelle tâche..."
+                autocomplete="off"
+            >
+            <button id="addBtn" class="add-btn">➕ Ajouter</button>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="active">En cours</button>
+            <button class="filter-btn" data-filter="completed">Complétées</button>
+        </div>
+
+        <div class="stats">
+            <span>Total: <strong id="totalCount">0</strong></span>
+            <span>Complétées: <strong id="completedCount">0</strong></span>
+            <span>Restantes: <strong id="remainingCount">0</strong></span>
+        </div>
+
+        <ul id="todoList" class="todo-list"></ul>
+
+        <div class="empty-state" id="emptyState">
+            <p>📭 Aucune tâche pour le moment</p>
+            <p>Ajoutez une nouvelle tâche pour commencer!</p>
+        </div>
+
+        <button id="clearBtn" class="clear-btn">🗑️ Effacer les complétées</button>
+        <button id="deleteAllBtn" class="delete-all-btn">❌ Tout supprimer</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
