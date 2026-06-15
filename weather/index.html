@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Météo - Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⛅ Tableau de Bord Météo</h1>
+            <p class="subtitle">Découvrez la météo en temps réel</p>
+        </header>
+
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="Entrez une ville (ex: Paris, London, Tokyo)..."
+                autocomplete="off"
+            >
+            <button id="searchBtn" class="search-btn">🔍 Rechercher</button>
+            <button id="locationBtn" class="location-btn" title="Utiliser ma géolocalisation">📍</button>
+        </div>
+
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Chargement des données...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <div id="weatherContainer" class="weather-container hidden">
+            <!-- Météo actuelle -->
+            <div class="current-weather">
+                <div class="weather-header">
+                    <h2 id="cityName"></h2>
+                    <p id="lastUpdated" class="last-updated"></p>
+                </div>
+
+                <div class="weather-main">
+                    <div class="weather-icon-section">
+                        <img id="weatherIcon" src="" alt="Météo" class="weather-icon">
+                        <div class="temperature-section">
+                            <span id="temperature" class="temperature"></span>
+                            <span id="description" class="description"></span>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-card">
+                            <span class="detail-label">Ressenti</span>
+                            <span id="feelsLike" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">Humidité</span>
+                            <span id="humidity" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">Pression</span>
+                            <span id="pressure" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">Vitesse du vent</span>
+                            <span id="windSpeed" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">Visibilité</span>
+                            <span id="visibility" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">UV</span>
+                            <span id="uvIndex" class="detail-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prévisions sur 5 jours -->
+            <div class="forecast-section">
+                <h3>📅 Prévisions 5 jours</h3>
+                <div id="forecastContainer" class="forecast-container"></div>
+            </div>
+
+            <!-- Informations supplémentaires -->
+            <div class="additional-info">
+                <div class="info-card">
+                    <h4>🌅 Lever/Coucher du soleil</h4>
+                    <p>Lever: <span id="sunrise"></span></p>
+                    <p>Coucher: <span id="sunset"></span></p>
+                </div>
+                <div class="info-card">
+                    <h4>💨 Direction du vent</h4>
+                    <p id="windDirection"></p>
+                </div>
+                <div class="info-card">
+                    <h4>🌧️ Chance de pluie</h4>
+                    <p id="rainChance"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+            <p>🌍 Bienvenue sur le Tableau de Bord Météo</p>
+            <p>Entrez le nom d'une ville pour afficher la météo actuelle et les prévisions</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
